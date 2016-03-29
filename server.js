@@ -40,10 +40,11 @@ router.get('/', function(req, res) {
 //create frontpage
 // ----------------------------------------------------
 app.get('/', function (req, res) {
-   Stock.findById(req.params.stock_id, function(err, stock) {
+   Stock.find(function(err, stocks) {
             if (err)
                 res.send(err);
-            res.json(stock);
+
+            res.json(stocks);
         });
 })
 
