@@ -37,6 +37,16 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
+//create frontpage
+// ----------------------------------------------------
+app.get('/', function (req, res) {
+   Stock.findById(req.params.stock_id, function(err, stock) {
+            if (err)
+                res.send(err);
+            res.json(stock);
+        });
+})
+
 // more routes for our API will happen here
 // on routes that end in /stocks
 // ----------------------------------------------------
